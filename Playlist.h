@@ -1,21 +1,22 @@
 
 #ifndef PLAYLIST_H
 #define PLAYLIST_H
-#include "Song.h"
 
 #include <string>
 #include <vector>
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include "Song.h"
 
 class Playlist
 {
 private:
     std::vector<Song> listOfSongs;
-    int currentSongInPlaylist;
     std::string playlistName;
+    int currentSongInPlaylist;
     static char option;
+    
 
 public:
     Playlist();
@@ -34,5 +35,7 @@ public:
     std::vector<Song> getSong();
     void setPName(std::string);
     std::string getPlaylistname();
+    
+    void printSong();
 };
 #endif
