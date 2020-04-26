@@ -123,7 +123,7 @@ void Playlist::play()
             cout << listOfSongs[currentSongInPlaylist] << endl;
         else
 
-            cout << "There are no more songs to play in the plalist." << endl;
+            cout << "This is the end of the plalist." << endl;
     }
     else if (option == 'R' || option == 'r')
     {
