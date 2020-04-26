@@ -33,14 +33,14 @@ int main()
   int selection;
   string newplaylist;
 
-  cout << "----------WELCOME to the AutoPlayer----------" << endl;
+  cout << "Welcome to the AutoPlayer" << endl;
   do
   {
     do
     {
-      cout << "1 - Open an exisiting playlist" << endl;
-      cout << "2 - Create new list" << endl;
-      cout << "3 - Exit" << endl;
+      cout << "1 <- Open an exisiting playlist" << endl;
+      cout << "2 <- Create new list" << endl;
+      cout << "3 <- Exit" << endl;
       cout << "Selection: ";
       cin >> menuChoice;
     } while (menuChoice != 1 && menuChoice != 2 && menuChoice != 3);
@@ -66,16 +66,16 @@ int main()
     {
       do
       {
-        cout << "1 - Create new empty list" << endl;
-        cout << "2 - Merge 2 exisitng playlists" << endl;
-        cout << "3 - Intersect 2 exisinting playlists" << endl;
+        cout << "1 <- Create new empty list" << endl;
+        cout << "2 <- Merge 2 playlists together" << endl;
+        cout << "3 <- Intersect 2 exisinting playlists" << endl;
         cout << "Selection: ";
         cin >> selection;
       } while (selection != 1 && selection != 2 && selection != 3);
 
       cin.ignore();
 
-      cout << "Name of new playlist (cannot contain underscores): ";
+      cout << "Name of new playlist: ";
       getline(cin, newplaylist);
 
       switch (selection)
@@ -147,15 +147,16 @@ int main()
           ;
       }
       break;
-      } // Switch cases end
+      } 
 
       cout << endl;
     }
   } while (menuChoice != 3); 
 
-  return 0; //terminates program
+  return 0; 
 }
 
+//-------------------------------------------------------------------------------------------------------
 void displayPlaylists(vector<songDetails> &vectorOfSongs)
 {
   for (int forLoopCounter = 0, j = 1; forLoopCounter < vectorOfSongs.size(); forLoopCounter++, j++)
@@ -180,7 +181,7 @@ void loadPlayList(vector<songDetails> &vectorOfSongs)
   }
   else
   {
-    cout << "Could not open Playlist.list" << endl;
+    cout << "Error we could not open Playlist.list" << endl;
   }
   in.close();
 }
@@ -194,13 +195,13 @@ bool Menu(Playlist &playlist)
   {
     menuOption = true;
 
-    cout << "You are now playing: " << playlist.getPlaylistname() << endl;
-    cout << "A - Add a song" << endl;
-    cout << "D - Delete a song" << endl;
-    cout << "P - Play a song" << endl;
-    cout << "M - Set the mode" << endl;
-    cout << "S - Show all songs" << endl;
-    cout << "Q - Quit" << endl
+    cout << "The current song playing is: " << playlist.getPlaylistname() << endl;
+    cout << "A <- Add a song" << endl;
+    cout << "D <- Delete a song" << endl;
+    cout << "P <- Play a song" << endl;
+    cout << "M <- Set the mode" << endl;
+    cout << "S <- Show all songs" << endl;
+    cout << "Q <- Quit" << endl
          << "Selection: " << endl;
     cin >> menuChoice;
 
@@ -215,7 +216,7 @@ bool Menu(Playlist &playlist)
     case 'P':
     {
       cout << endl;
-      cout << "NOW PLAYING:" << endl;
+      cout << "CURRENTLY PLAYING:" << endl;
       playlistObject.play();
     }
 
@@ -252,7 +253,7 @@ void addNewPlaylist(string playlistName, vector<songDetails> &v_song)
 void addSong(Playlist &playlist)
 {
   cin.ignore();
-  Song s; // Create song playlistObjectect
+  Song s; 
   cin >> s;
   string name = playlist.getPlaylistname();
   name + ".playlist";
@@ -302,9 +303,9 @@ void modeChange()
     good = true;
 
     cout << "Enter mode: " << endl;
-    cout << "N - Normal" << endl;
-    cout << "R - Repeat" << endl;
-    cout << "L - Loop" << endl
+    cout << "N <- Normal (just play the songs once)" << endl;
+    cout << "R <- Repeat (repeat current song)" << endl;
+    cout << "L <- Loop (repeat song playlist)" << endl
          << "Selection: " << endl;
     char menuOption;
     cin >> menuOption;
