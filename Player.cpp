@@ -39,8 +39,8 @@ int main()
     do
     {
       cout << "1 <- Open an exisiting playlist" << endl;
-      cout << "2 <- Create new list" << endl;
-      cout << "3 <- Exit" << endl;
+      cout << "2 <- Create a new playlist" << endl;
+      cout << "3 <- Exit the AutoPlayer9000" << endl;
       cout << "Selection: ";
       cin >> menuChoice;
     } while (menuChoice != 1 && menuChoice != 2 && menuChoice != 3);
@@ -303,9 +303,9 @@ void modeChange()
     good = true;
 
     cout << "Enter mode: " << endl;
-    cout << "N <- Normal (just play the songs once)" << endl;
-    cout << "R <- Repeat (repeat current song)" << endl;
-    cout << "L <- Loop (repeat song playlist)" << endl
+    cout << "N <- Normal" << endl;
+    cout << "R <- Repeat" << endl;
+    cout << "L <- Loop" << endl
          << "Selection: " << endl;
     char menuOption;
     cin >> menuOption;
