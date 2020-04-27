@@ -86,6 +86,7 @@ int main()
       //Switch case for each number used in the create playlist menu 
       switch (selection)
       {
+      //Creates and name new playlist
       case 1:
       {
         create and name playlist
@@ -95,9 +96,10 @@ int main()
         Menu(p); 
       }
       break;
+          
+      //select 2 palylist to put together
       case 2:
       {
-        //select 2 palylist to put together
         cout << endl
              << "Which of the following playlists would you like to merge? " << endl;
         displayPlaylists(vectorOfSongs);
@@ -126,7 +128,7 @@ int main()
           ;
       }
       break;
-      //This intersect the playlist to find similar songs and return a new playlist
+      //Intersects the playlist to create new playlist
       case 3:
       {
         cout << endl
