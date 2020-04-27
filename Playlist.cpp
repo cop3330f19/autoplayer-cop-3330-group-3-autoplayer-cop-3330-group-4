@@ -1,3 +1,6 @@
+//Playlist.cpp
+//Group 4 Noah Richardson, Milik Bennett-Spence, Desjah Thompson, Terik Hamilton
+//04/26/20
 #include <vector>
 #include <string>
 #include <iostream>
