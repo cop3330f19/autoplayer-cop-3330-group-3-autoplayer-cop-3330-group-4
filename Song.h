@@ -1,6 +1,7 @@
-//Player.cpp
+//Song.h
 // Group 4 Noah Richardson, Milik Bennett-Spence, Desjah Thompson, Terik Hamilton
 // 04/26/20
+//Allow users to create new named playlist, view all the playlists, merge (intersect) exisiting playlists into a new list, and play a playlist.
 #ifndef SONG_H
 #define SONG_H
 
