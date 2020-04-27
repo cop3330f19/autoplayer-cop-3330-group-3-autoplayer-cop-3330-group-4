@@ -10,13 +10,16 @@
 
 using namespace std;
 
+//Default Mode for playlist
 char Playlist::option = 'N'; 
 
+//Add song by pushing it back in the playlist vector
 void Playlist::addSong(Song &s1)
 {
     listOfSongs.push_back(s1); 
 }
 
+//Delete song from playlist vector
 void Playlist::deleteSong(Song &deletesong)
 {
 
@@ -32,11 +35,13 @@ void Playlist::deleteSong(Song &deletesong)
     }
 }
 
+//Return songs for playlist
 vector<Song> Playlist::getSong()
 {
     return listOfSongs;
 }
 
+//This intersect the playlist to find similarities and return a new playlist
 Playlist Playlist::intersectPlaylist(Playlist &p2)
 {
 
