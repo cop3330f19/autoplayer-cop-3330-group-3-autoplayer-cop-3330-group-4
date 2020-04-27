@@ -1,4 +1,3 @@
-
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -8,12 +7,13 @@
 
 using namespace std;
 
+//get filename
 struct songDetails
 {
   string name;
   string filename;
 };
-
+/**/
 void loadPlayList(vector<songDetails> &);
 void displayPlaylists(vector<songDetails> &);
 void addNewPlaylist(string, vector<songDetails> &);
@@ -23,6 +23,7 @@ void addSong(Playlist &);
 void modeChange();
 Playlist playlistObject;
 
+// The main
 int main()
 {
   vector<songDetails> vectorOfSongs; 
@@ -33,6 +34,7 @@ int main()
   int selection;
   string newplaylist;
 
+  // Output main menu
   cout << "Welcome to the AutoPlayer" << endl;
   do
   {
@@ -43,8 +45,10 @@ int main()
       cout << "3 <- Exit the AutoPlayer9000" << endl;
       cout << "Selection: ";
       cin >> menuChoice;
-    } while (menuChoice != 1 && menuChoice != 2 && menuChoice != 3);
+    } 
+    while (menuChoice != 1 && menuChoice != 2 && menuChoice != 3);
 
+    //if 1 continue to select playlist below
     if (menuChoice == 1)
     {
       cout << "Please select a playlist from below: " << endl;
@@ -62,6 +66,7 @@ int main()
 
       Menu(p1); 
     }
+    // If 2, go to next menu and choose an option for creating a playlist
     else if (menuChoice == 2)
     {
       do
@@ -78,10 +83,12 @@ int main()
       cout << "Name of new playlist: ";
       getline(cin, newplaylist);
 
+      //Switch case for each number used in the create playlist menu 
       switch (selection)
       {
       case 1:
       {
+        create and name playlist
         Playlist p;              
         p.setPName(newplaylist); 
         addNewPlaylist(newplaylist, vectorOfSongs);
@@ -90,6 +97,7 @@ int main()
       break;
       case 2:
       {
+        //select 2 palylist to put together
         cout << endl
              << "Which of the following playlists would you like to merge? " << endl;
         displayPlaylists(vectorOfSongs);
@@ -157,12 +165,13 @@ int main()
 }
 
 //-------------------------------------------------------------------------------------------------------
+//show the playlist
 void displayPlaylists(vector<songDetails> &vectorOfSongs)
 {
   for (int forLoopCounter = 0, j = 1; forLoopCounter < vectorOfSongs.size(); forLoopCounter++, j++)
     cout << j << " " << vectorOfSongs[forLoopCounter].name << endl;
 }
-
+//Load a playlist 
 void loadPlayList(vector<songDetails> &vectorOfSongs)
 {
 
@@ -186,6 +195,7 @@ void loadPlayList(vector<songDetails> &vectorOfSongs)
   in.close();
 }
 
+//show current playlist and give option menu
 bool Menu(Playlist &playlist)
 {
   bool menuOption;
@@ -240,6 +250,7 @@ bool Menu(Playlist &playlist)
   return true;
 }
 
+//Add a playlist
 void addNewPlaylist(string playlistName, vector<songDetails> &v_song)
 {
   songDetails listOfSongs = {playlistName, StringHelper::stou(playlistName)};
@@ -250,6 +261,7 @@ void addNewPlaylist(string playlistName, vector<songDetails> &v_song)
   out.close();
 }
 
+//Add a song to playlist
 void addSong(Playlist &playlist)
 {
   cin.ignore();
@@ -266,6 +278,7 @@ void addSong(Playlist &playlist)
   out << s;
 }
 
+//Delete a song from playlist
 void deleteSong(Playlist &playlist)
 {
   cin.ignore();
@@ -294,6 +307,7 @@ void deleteSong(Playlist &playlist)
     out << temp[forLoopCounter] << endl;
 }
 
+//Change the mode to normal, repeat and loop.
 void modeChange()
 {
   bool good;
