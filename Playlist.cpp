@@ -18,12 +18,14 @@ using namespace std;
 char Playlist::option = 'N'; 
 
 //Add song by pushing it back in the playlist vector
+// passed: 1 argument: address to a variable from the Song class
 void Playlist::addSong(Song &s1)
 {
     listOfSongs.push_back(s1); 
 }
 
 //Delete song from playlist vector
+// Passed: 1 argument: address to a variable from the Song class
 void Playlist::deleteSong(Song &deletesong)
 {
     bool valid;
@@ -45,6 +47,7 @@ vector<Song> Playlist::getSong()
 }
 
 //This intersect the playlist to find similarities and return a new playlist
+// Passed: 1 argument: address to a variable from the Playlist class
 Playlist Playlist::intersectPlaylist(Playlist &p2)
 {
     Playlist result;
@@ -65,6 +68,8 @@ Playlist Playlist::intersectPlaylist(Playlist &p2)
     return result;
 }
 //Linear search through song vector
+// Passed: 2 arguments: vector thats stores the songs in a playlist,address to a variable from the Song class
+// returns: the song that is being searched for within a playlist
 bool Playlist::search(vector<Song> b, Song &g) 
 {
     bool valid;
@@ -77,6 +82,8 @@ bool Playlist::search(vector<Song> b, Song &g)
 }
 
 //merge one playlist with another
+// Passed: 2 argument: 2 addresses to a variable from the playlist class
+// returns: the two playlists that is being combined
 Playlist operator+(Playlist &p1, Playlist &p2)
 {
     Playlist merge;
@@ -97,6 +104,8 @@ Playlist operator+(Playlist &p1, Playlist &p2)
 }
 
 //Add songs to specified playlist
+// Passed: 2 argument: address to a variable from the Playlist class, address to a variable from the Song class
+// returns: the playlist with the newly added songs
 Playlist operator+(Playlist &p1, Song &s1)
 {
     Playlist a1;
@@ -106,6 +115,8 @@ Playlist operator+(Playlist &p1, Song &s1)
 }
 
 //Delete song from specified playlist
+// Passed: 2 argument: address to a variable from the Playlist class, address to a variable from the Song class
+// returns: the playlist without the sing that was deleted
 Playlist operator-(Playlist &p1, Song &s1)
 {
     Playlist d1;
@@ -149,18 +160,21 @@ void Playlist::play()
 }
 
 //Read charater and change mode to
+//passed: 1 argument:  a character that contains the mode options
 void Playlist::mode(char option)
 {
     Playlist::option = option;
 }
 
 //set the playlist name
+// passed: 1 argument: a string 
 void Playlist::setPName(string pname)
 {
     playlistName = pname;
 }
 
 //get playlist name
+// returns: the name of the playlist
 string Playlist::getPlaylistname()
 {
     return playlistName;
