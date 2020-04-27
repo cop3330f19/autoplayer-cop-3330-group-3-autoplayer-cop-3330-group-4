@@ -9,7 +9,7 @@
 
 using namespace std;
 
-
+//
 Song::Song()
 {
     title = "";
@@ -45,6 +45,7 @@ ofstream &operator<<(ofstream &os, const Song &song)
     return os;
 }
 
+//get input from playlist files
 fstream &operator>>(fstream &is, Song &song)
 {
     string placeholder;
@@ -60,6 +61,7 @@ fstream &operator>>(fstream &is, Song &song)
     return is;
 }
 
+//output song info from playlist file
 istream &operator>>(istream &is, Song &song)
 {
     cout << "Song Details \n";
