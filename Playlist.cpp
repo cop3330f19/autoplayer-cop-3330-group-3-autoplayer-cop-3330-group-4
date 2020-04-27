@@ -22,7 +22,6 @@ void Playlist::addSong(Song &s1)
 //Delete song from playlist vector
 void Playlist::deleteSong(Song &deletesong)
 {
-
     bool valid;
     valid = false;
     for (int iterator = 0; iterator < listOfSongs.size(); iterator++)
@@ -44,7 +43,6 @@ vector<Song> Playlist::getSong()
 //This intersect the playlist to find similarities and return a new playlist
 Playlist Playlist::intersectPlaylist(Playlist &p2)
 {
-
     Playlist result;
     bool valid;
     vector<Song> temp = p2.getSong();
@@ -56,15 +54,13 @@ Playlist Playlist::intersectPlaylist(Playlist &p2)
         for (int forLoopIterator = 0; forLoopIterator < temp.size(); forLoopIterator++)
         {
             if (listOfSongs[iterator] == temp[forLoopIterator] && search(result.getSong(), listOfSongs[iterator]))
-
                 valid = true;
-
             result.addSong(listOfSongs[iterator]);
         }
     }
     return result;
 }
-
+//Linear search through song vector
 bool Playlist::search(vector<Song> b, Song &g) 
 {
     bool valid;
@@ -76,6 +72,7 @@ bool Playlist::search(vector<Song> b, Song &g)
     return valid;
 }
 
+//merge one playlist with another
 Playlist operator+(Playlist &p1, Playlist &p2)
 {
     Playlist merge;
@@ -94,6 +91,8 @@ Playlist operator+(Playlist &p1, Playlist &p2)
     }
     return Playlist(merge);
 }
+
+//Add songs to specified playlist
 Playlist operator+(Playlist &p1, Song &s1)
 {
     Playlist a1;
@@ -102,6 +101,7 @@ Playlist operator+(Playlist &p1, Song &s1)
     return Playlist(a1);
 }
 
+//Delete song from specified playlist
 Playlist operator-(Playlist &p1, Song &s1)
 {
     Playlist d1;
@@ -119,6 +119,7 @@ ostream &operator<<(ostream &os, const Playlist &p1)
     return os;
 }
 
+//Play the current song
 void Playlist::play() 
 {
     if (option == 'N' || option == 'n')
@@ -143,26 +144,31 @@ void Playlist::play()
     }
 }
 
+//Read charater and change mode to
 void Playlist::mode(char option)
 {
     Playlist::option = option;
 }
 
+//set the playlist name
 void Playlist::setPName(string pname)
 {
     playlistName = pname;
 }
 
+//get playlist name
 string Playlist::getPlaylistname()
 {
     return playlistName;
 }
 
+//record what is in -> "" <-
 Playlist::Playlist()
 {
     playlistName = "";
 }
 
+//
 Playlist::Playlist(string name)
 {
     setPName(name);
