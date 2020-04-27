@@ -126,6 +126,7 @@ int main()
           ;
       }
       break;
+      //This intersect the playlist to find similar songs and return a new playlist
       case 3:
       {
         cout << endl
